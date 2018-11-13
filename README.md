@@ -1,5 +1,5 @@
 # CIS152 - Data Structures
-This repository hosts class material from CIS152 (Data Structures), which I took at Des Moines Area Community College in Summer 2017.  
+This repository hosts class materials from CIS152 (Data Structures), which I took at Des Moines Area Community College in Summer 2017.  
 
 ## Table of Contents
 1. [Syllabus](#syllabus)
