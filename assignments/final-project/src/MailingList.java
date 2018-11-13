@@ -41,40 +41,40 @@ public class MailingList {
      * Scanner
      */
     private static Scanner in = new Scanner(System.in);
-	
-	/**
-	 * Program entry point
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		
-		// program loop
-		while(run) {
-			try {
-				// display commands
-				System.out.print("Choose one: a (add), r (remove), s (show), q (queue email), e (exit): ");
-				String option = in.nextLine();
-				
-				switch(option) {
-					case "a": add(); break;
-					case "s": show(); break;
-					case "r": remove(); break;
-					case "q": queue(); break;
-					case "e": run = false; break;
-					default: System.out.println("Invalid command.\n"); break;
-				}
-				
-			} catch(Exception e) { // bad email
-				if(e.getMessage().equals("bad email")) System.out.println("Please enter a valid email\n");
-				else System.out.println("Invalid option\n");
-			}
-		}
-		
-		// exit program
-		System.out.println("Goodbye!");
-		in.close();
+
+    /**
+     * Program entry point
+     * @param args
+     */
+    public static void main(String[] args) {
+
+        // program loop
+        while(run) {
+            try {
+                // display commands
+                System.out.print("Choose one: a (add), r (remove), s (show), q (queue email), e (exit): ");
+                String option = in.nextLine();
+
+                switch(option) {
+                    case "a": add(); break;
+                    case "s": show(); break;
+                    case "r": remove(); break;
+                    case "q": queue(); break;
+                    case "e": run = false; break;
+                    default: System.out.println("Invalid command.\n"); break;
+                }
+
+            } catch(Exception e) { // bad email
+                if(e.getMessage().equals("bad email")) System.out.println("Please enter a valid email\n");
+                else System.out.println("Invalid option\n");
+            }
+        }
+
+        // exit program
+        System.out.println("Goodbye!");
+        in.close();
     }
-    
+
     /**
      * a(dd) subcommand, adds a new person to the mailing list
      */
@@ -82,15 +82,15 @@ public class MailingList {
         System.out.print("Enter email: ");
         String email = in.nextLine().trim();
         if(!email.matches(EMAIL_REGEX)) throw new Exception("bad email"); // check to see if email was entered
-        
+
         // get firstname
         System.out.print("Enter first name: ");
         String firstname = in.nextLine();
-        
+
         // get lastname
         System.out.print("Enter last name: ");
         String lastname = in.nextLine();
-        
+
         // create person, enter it into the map
         Person person = new Person(firstname, lastname);
         storage.set(email, person);
@@ -104,7 +104,7 @@ public class MailingList {
         for(Entry<String,Person> entry : storage) {
             System.out.println(entry);
         }
-        
+
         System.out.println();
     }
 
@@ -123,13 +123,13 @@ public class MailingList {
     private static void queue() {
         System.out.print("Enter a message to send:");
         in.nextLine();
-        
+
         // convert map to queue
         Queue<Entry<String,Person>> queue = storage.toQueue(); 
-        
+
         // dequeue until empty
         while(!queue.isEmpty()) {
-            
+
             Entry<String,Person> entry = queue.dequeue();
             Person value = entry.getValue();
 
@@ -140,7 +140,7 @@ public class MailingList {
             storage.set(entry.getKey(), value);
             System.out.println("Sent message to " + value);
         }
-        
+
         System.out.println("Sent messages to everyone in mailing list.\n");
     }
 }
