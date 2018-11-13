@@ -5,22 +5,22 @@
  */
 
 public class ArrayIterator {
-	
-	/**
-	 * Program entry point
-	 * @param args command line arguments (if any)
-	 */
-	public static void main(String[] args) {
-		
-		// initialize needed variables
-		final int SIZE = 10;
-		int[] randomNumbers = new int[SIZE];
-		int index = 0;
-		
-		for(int number : randomNumbers) {
-			randomNumbers[index] = (int)(Math.random() * 25) + 1; // generate random number
-			System.out.println("randomNumbers element at index["+index+"] = "+randomNumbers[index]); // print element
-			index++;
-		}
-	}
+
+    /**
+     * Program entry point
+     * @param args command line arguments (if any)
+     */
+    public static void main(String[] args) {
+
+        // initialize needed variables
+        final int SIZE = 10;
+        int[] randomNumbers = new int[SIZE];
+        int index = 0;
+
+        for(int number : randomNumbers) {
+            randomNumbers[index] = (int)(Math.random() * 25) + 1; // generate random number
+            System.out.println("randomNumbers element at index["+index+"] = "+randomNumbers[index]); // print element
+            index++;
+        }
+    }
 }
