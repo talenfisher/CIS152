@@ -8,32 +8,32 @@
  *
  */
 public class CallStackDriver {
-	public static void main(String args[]) {
-		System.out.println("In main method\n");
-		
-		// try sequentially 1-4
-		CallStack.method1();
-		CallStack.method2();
-		CallStack.method3();
-		CallStack.method4();
-		
-		System.out.println();
-		
-		// try reverse
-		CallStack.method4();
-		CallStack.method3();
-		CallStack.method2();
-		CallStack.method1();
-		
-		System.out.println();
-		
-		// try out of order
-		CallStack.method2();
-		CallStack.method4();
-		CallStack.method3();
-		CallStack.method1();
-		
-		System.out.println();
-		System.out.println("Exiting main");
-	}
+    public static void main(String args[]) {
+        System.out.println("In main method\n");
+
+        // try sequentially 1-4
+        CallStack.method1();
+        CallStack.method2();
+        CallStack.method3();
+        CallStack.method4();
+
+        System.out.println();
+
+        // try reverse
+        CallStack.method4();
+        CallStack.method3();
+        CallStack.method2();
+        CallStack.method1();
+
+        System.out.println();
+
+        // try out of order
+        CallStack.method2();
+        CallStack.method4();
+        CallStack.method3();
+        CallStack.method1();
+
+        System.out.println();
+        System.out.println("Exiting main");
+    }
 }
